@@ -12,11 +12,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.tai.spring.wiring.application.TransactionService;
+import org.tai.spring.wiring.config.AppConfig;
 import org.tai.spring.wiring.domain.model.Account;
 import org.tai.spring.wiring.domain.model.TransactionSummary;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/context.xml" })
+@ContextConfiguration(classes = AppConfig.class)
 @ActiveProfiles(profiles = {"test"})
 public class TransactionServiceIntegrationTest {
 
