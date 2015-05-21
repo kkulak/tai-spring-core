@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Map.Entry;
 
+import org.springframework.stereotype.Service;
 import org.tai.spring.wiring.domain.model.Account;
 import org.tai.spring.wiring.domain.model.Transaction;
 import org.tai.spring.wiring.domain.model.TransactionSummary;
@@ -16,6 +17,7 @@ import com.google.common.collect.Multimaps;
 /**
  * Implements non-trivial domain logic ;)
  */
+@Service
 public class SummaryService {
 
 	public Collection<TransactionSummary> summarize(Collection<Transaction> transactions) {

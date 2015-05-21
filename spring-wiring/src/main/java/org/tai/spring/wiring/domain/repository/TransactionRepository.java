@@ -9,15 +9,19 @@ import java.util.Collection;
 import javax.sql.DataSource;
 
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 import org.tai.spring.wiring.domain.model.Account;
 import org.tai.spring.wiring.domain.model.Transaction;
 
+@Repository
 public class TransactionRepository {
 
 	private final JdbcTemplate template;
 
+    @Autowired
 	public TransactionRepository(DataSource dataSource) {
 		this.template = new JdbcTemplate(dataSource);
 	}

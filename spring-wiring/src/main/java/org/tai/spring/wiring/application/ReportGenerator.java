@@ -12,10 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.tai.spring.wiring.domain.model.TransactionSummary;
 
 import com.google.common.base.Stopwatch;
 
+@Component
 public class ReportGenerator {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(ReportGenerator.class);
@@ -23,7 +27,8 @@ public class ReportGenerator {
 	private final TransactionService transactionService;
 	private final String reportLocation;
 
-	public ReportGenerator(TransactionService transactionService, String reportLocation) {
+    @Autowired
+	public ReportGenerator(TransactionService transactionService, @Value("${report.location}") String reportLocation) {
 		this.transactionService = transactionService;
 		this.reportLocation = reportLocation;
 		// ensure reportLocation exists
